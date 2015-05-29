@@ -1,0 +1,31 @@
+<#@ template language="C#v3.5" debug="False" hostspecific="True"  #>
+<#@ output extension=".cs" #>
+<#@ include file="SQLServer.ttinclude" #>
+<#
+    var tables = LoadTables();
+#>
+#pragma warning disable 1591 
+using System.Runtime.Serialization; 
+
+namespace <#=EnumNamespace#> 
+{
+	public partial class <#=EnumClass#> 
+	{
+<#  foreach(var tbl in EnumTables){
+#>
+		/// <summary>
+		/// Enum generated from table: <#=tbl#>
+		/// </summary>
+		[DataContract]
+		public enum <#=tbl#>
+		{
+<#		var values = LoadEnumValues(tbl);
+		foreach (var key in values.Keys) { 
+#>			[EnumMember]
+			<#= System.Text.RegularExpressions.Regex.Replace(key,@"\W","") #> = <#= values[key] #>,
+<# } #>
+		}
+<# } #>
+	}
+}
+#pragma warning enable 1591 
