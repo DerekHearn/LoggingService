@@ -65,7 +65,7 @@ namespace LoggingService.BL
 			try
 			{
 				mle.Save();
-				return BLError.NoError();
+				return BLError.NoError;
 			}
 			catch (Exception e)
 			{

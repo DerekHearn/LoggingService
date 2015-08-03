@@ -69,7 +69,7 @@ namespace LoggingService
 				return new BasicServiceResult(saveResult);
 			}
 
-			return BasicServiceResult.NoError();
+			return BasicServiceResult.NoError;
 		}
 
 		[LoggedMethod]
@@ -86,7 +86,7 @@ namespace LoggingService
 				return new BasicServiceResult(sr);
 			}
 
-			return BasicServiceResult.NoError();
+			return BasicServiceResult.NoError;
 		}
 
 		[LoggedMethod]

@@ -121,7 +121,7 @@ namespace LoggingService.BL
 			try
 			{
 				ml.Save();
-				return BLError.NoError();
+				return BLError.NoError;
 			}
 			catch(Exception e)
 			{
